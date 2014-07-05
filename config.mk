@@ -5,7 +5,7 @@ PREFIX      = /usr/local
 BINDIR      = ${PREFIX}/bin
 MANDIR      = ${PREFIX}/share/man
 MAN1DIR     = ${MANDIR}/man1
-DOCDIR      = ${PREFIX}/share/doc/ii
+DOCDIR      = ${PREFIX}/share/doc/chat
 
 # Set the following to install to a different root
 DESTDIR     =

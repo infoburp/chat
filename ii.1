@@ -1,12 +1,12 @@
 .de FN
 \fI\|\\$1\|\fP\\$2
 ..
-.TH ii 1
+.TH chat 1
 .SH NAME
-ii \- irc it or irc improved
+chat \- irc it or irc improved
 
 .SH DESCRIPTION
-.B ii
+.B chat
 is a minimalistic FIFO and filesystem based IRC client.
 It creates an irc directory tree with server, channel and
 nick name directories.
@@ -18,9 +18,9 @@ name there will be new in and out files.
 The basic idea of this is to be able to communicate with an IRC
 server with basic command line tools.
 For example if you will join a channel just do echo "/j #channel" > in
-and ii creates a new channel directory with in and out file.
+and chat creates a new channel directory with in and out file.
 .SH SYNOPSIS
-.B ii
+.B chat
 .RB [ \-s
 .IR servername ]
 .RB [ \-p
@@ -43,7 +43,7 @@ lets you override the default servername (irc.freenode.net)
 lets you override the default port (6667)
 .TP
 .BI \-k " environment variable"
-lets you specify an environment variable that contains your IRC password, e.g. IIPASS="foobar" ii -k IIPASS.
+lets you specify an environment variable that contains your IRC password, e.g. chatPASS="foobar" chat -k chatPASS.
 This is done in order to prevent other users from eavesdropping the server password via the process list.
 .TP
 .BI \-i " prefix"
@@ -86,12 +86,6 @@ So if you need /who just write /WHO as described in the RFC to the server in FIF
 .TP
 .FN "out file usage"
 Write wrappers, pagers or use your tools of choice to display the out file contents (loco, multitail, etc.). 
-.SH CONTACT
-.TP
-Write to ii (at) modprobe (dot) de for suggestions, fixes, 7|-|>< ;) etc.
-.SH AUTHORS
-Copyright \(co 2005-2006 by Anselm R. Garbe <garbeam (at) gmail (dot) com> and 
-Copyright \(co 2005-2008 by Nico Golde <nico (at) ngolde (dot) de>
 .SH SEE ALSO
 .BR echo (1),
 .BR tail (1),

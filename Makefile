@@ -4,14 +4,14 @@
 
 include config.mk
 
-SRC      = ii.c
+SRC      = chat.c
 OBJ      = ${SRC:.c=.o}
 
-all: options ii
-	@echo built ii
+all: options chat
+	@echo built chat
 
 options:
-	@echo ii build options:
+	@echo chat build options:
 	@echo "LIBS     = ${LIBS}"
 	@echo "INCLUDES = ${INCLUDES}"
 	@echo "CFLAGS   = ${CFLAGS}"
@@ -23,14 +23,14 @@ options:
 	@${CC} -c ${CFLAGS} $<
 
 dist: clean
-	@mkdir -p ii-${VERSION}
-	@cp -R query.sh Makefile CHANGES README FAQ LICENSE config.mk ii.c ii.1 ii-${VERSION}
-	@tar -cf ii-${VERSION}.tar ii-${VERSION}
-	@gzip ii-${VERSION}.tar
-	@rm -rf ii-${VERSION}
-	@echo created distribution ii-${VERSION}.tar.gz
+	@mkdir -p chat-${VERSION}
+	@cp -R query.sh Makefile CHANGES README FAQ LICENSE config.mk chat.c chat.1 chat-${VERSION}
+	@tar -cf chat-${VERSION}.tar chat-${VERSION}
+	@gzip chat-${VERSION}.tar
+	@rm -rf chat-${VERSION}
+	@echo created distribution chat-${VERSION}.tar.gz
 
-ii: ${OBJ}
+chat: ${OBJ}
 	@echo LD $@
 	@${CC} -o $@ ${OBJ} ${LDFLAGS}
 
@@ -41,15 +41,15 @@ install: all
 
 	@install -d ${DESTDIR}${BINDIR} ${DESTDIR}${MAN1DIR}
 	@install -m 644 CHANGES README query.sh FAQ LICENSE ${DESTDIR}${DOCDIR}
-	@install -m 775 ii ${DESTDIR}${BINDIR}
-	@install -m 444 ii.1 ${DESTDIR}${MAN1DIR}
-	@echo "installed ii"
+	@install -m 775 chat ${DESTDIR}${BINDIR}
+	@install -m 444 chat.1 ${DESTDIR}${MAN1DIR}
+	@echo "installed chat"
 
 uninstall: all
-	@rm -f ${DESTDIR}${MAN1DIR}/ii.1
+	@rm -f ${DESTDIR}${MAN1DIR}/chat.1
 	@rm -rf ${DESTDIR}${DOCDIR}
-	@rm -f ${DESTDIR}${BINDIR}/ii
-	@echo "uninstalled ii"
+	@rm -f ${DESTDIR}${BINDIR}/chat
+	@echo "uninstalled chat"
 
 clean:
-	rm -f ii *~ *.o *core *.tar.gz
+	rm -f chat *~ *.o *core *.tar.gz
